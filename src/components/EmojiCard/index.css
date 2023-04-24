@@ -1,0 +1,10 @@
+/* Write your code here. */
+.EmojiButton {
+  border: none;
+  background-color: #9796f0;
+  padding: 20px;
+  border-radius: 10px;
+  margin-right: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}

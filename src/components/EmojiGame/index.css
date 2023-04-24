@@ -1,0 +1,25 @@
+/* Write your code here. */
+.unordered-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.emoji-container {
+  background-image: linear-gradient(to bottom, #6a59ff, #fbc7d4);
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Emojis {
+  height: 100vh;
+}
