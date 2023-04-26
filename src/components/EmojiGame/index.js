@@ -20,7 +20,7 @@ const shuffledEmojisList = () => {
 class EmojiGame extends Component {
   state = {
     isShuffled: false,
-    initialClickedEmoji: null,
+    initialClickedEmoji: [],
     score: 0,
     topScore: 0,
     winOrLose: false,
@@ -33,21 +33,11 @@ class EmojiGame extends Component {
 
   onClickEmoji = id => {
     const {initialClickedEmoji, score} = this.state
+    console.log('initialClickedEmoji')
+    console.log(initialClickedEmoji)
     console.log('score in state')
     console.log(score)
-    if (initialClickedEmoji === null) {
-      this.setState(prevState => ({
-        initialClickedEmoji: id,
-        isShuffled: true,
-        score: prevState.score + 1,
-      }))
-    } else if (initialClickedEmoji === id && score === 12) {
-      this.setState({
-        isShuffled: false,
-        topScore: score,
-        winOrLose: true,
-      })
-    } else if (initialClickedEmoji !== id) {
+    if (initialClickedEmoji.includes(id)) {
       this.setState(prevState => {
         let topS = 0
         if (prevState.topScore < prevState.score) {
@@ -63,6 +53,7 @@ class EmojiGame extends Component {
       })
     } else {
       this.setState(prevState => ({
+        initialClickedEmoji: [...prevState.initialClickedEmoji, id],
         isShuffled: true,
         score: prevState.score + 1,
       }))
@@ -73,7 +64,7 @@ class EmojiGame extends Component {
     this.setState({
       isShuffled: true,
       winOrLose: false,
-      initialClickedEmoji: null,
+      initialClickedEmoji: [],
       score: 0,
     })
   }
